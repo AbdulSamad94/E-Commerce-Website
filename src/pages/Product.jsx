@@ -29,15 +29,15 @@ function Product() {
 
   return theProduct ? (
     <>
-      <div className=" border-t-2 border-gray-200">
-        <div className="flex flex-row">
+      <div className="overflow-hidden border-t-2 border-gray-200">
+        <div className="flex flex-col sm:flex-row">
         {/* LeftSide */}
-        <div className="flex gap-3 flex-row mt-10 w-auto h-auto">
-          <div>
+        <div className="flex justify-center gap-3 flex-col-reverse sm:flex-row mt-10 w-auto h-auto">
+          <div className="flex gap-2 justify-center sm:block flex-row-reverse">
             {theProduct.image.map((item, index) => (
               <img
                 onClick={() => setImages(item)}
-                className="mb-3 w-28 cursor-pointer"
+                className="mb-3 w-20 sm:w-28 cursor-pointer"
                 src={item}
                 key={index}
                 alt=""
@@ -66,7 +66,7 @@ function Product() {
           <div className="text-3xl font-medium mt-8">
             {currency} {theProduct.price}
           </div>
-          <p className="text-gray-500 mt-5 text-base w-96">
+          <p className="text-gray-500 mt-5 text-base w-80 sm:w-96">
             {theProduct.description}
           </p>
           <div className="mt-6 flex flex-col gap-5">
