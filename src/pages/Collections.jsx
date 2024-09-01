@@ -77,7 +77,7 @@ const Collections = () => {
   }, [sortProduct]);
 
   useEffect(() => {
-    filterControls.start({ opacity: 1, x : -20,  transition: { duration: 0.3 } });
+    filterControls.start({ opacity: 1, x : 0,  transition: { duration: 0.3 } });
     applyingFilter();
   }, [category, subcategory, search, showSearch]);
 
