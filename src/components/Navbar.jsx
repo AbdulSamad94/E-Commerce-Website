@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { useState } from "react";
-import { Link, NavLink} from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { assets } from "../assets/frontend_assets/assets";
 import { shopContext } from "../context/ShopContext";
 
@@ -11,8 +11,7 @@ function Navbar() {
   // This is for the Hamburger menu
   const [navabar, setNavbar] = useState(false);
 
-  const { setShowSearch, showSearch } = useContext(shopContext);
-
+  const { setShowSearch, showSearch, getCartCount } = useContext(shopContext);
 
   return (
     // Left Side
@@ -85,7 +84,7 @@ function Navbar() {
         <Link to="/card" className="relative">
           <img src={assets.cart_icon} className="min-w-5 w-5" alt="" />
           <p className="absolute -right-1 -bottom-2 w-4 text-center leading-4 aspect-square bg-black text-white text-[8px] rounded-full ">
-            10
+            {getCartCount()}
           </p>
         </Link>
         <img
