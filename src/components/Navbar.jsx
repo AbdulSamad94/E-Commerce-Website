@@ -53,14 +53,12 @@ function Navbar() {
           alt=""
         />
         <div className="group relative">
-          <Link to="/login">
           <img
-            onClick={(e) => setShow(true)}
+            onClick={(e) => setShow(!show)}
             className="w-5 cursor-pointer"
             src={assets.profile_icon}
             alt=""
           />
-          </Link>
           <div
             className={`${
               show ? "absolute dropdown-menu right-0 pt-4" : "hidden"
@@ -68,9 +66,12 @@ function Navbar() {
           >
             <div className="w-40 bg-slate-100 p-4 rounded shadow flex justify-between text-gray-500">
               <div className="flex flex-col gap-2 mr-2">
-                <p className="cursor-pointer hover:text-black">My Profile</p>
-                <p className="cursor-pointer hover:text-black">Orders</p>
-                <p className="cursor-pointer hover:text-black">Logout</p>
+                <Link onClick={(e) => setShow(false)} to="/orders">
+                  <p className="cursor-pointer hover:text-black">Orders</p>
+                </Link>
+                <Link onClick={(e) => setShow(false)} to="/login">
+                  <p className="cursor-pointer hover:text-black">Login</p>
+                </Link>
               </div>
               <div className="rounded-full bg-slate-200 duration-300 cursor-pointer hover:bg-slate-300 w-8 h-8 flex justify-center items-center">
                 <img
