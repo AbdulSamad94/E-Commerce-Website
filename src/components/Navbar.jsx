@@ -53,12 +53,14 @@ function Navbar() {
           alt=""
         />
         <div className="group relative">
+          <Link to="/login">
           <img
             onClick={(e) => setShow(true)}
             className="w-5 cursor-pointer"
             src={assets.profile_icon}
             alt=""
           />
+          </Link>
           <div
             className={`${
               show ? "absolute dropdown-menu right-0 pt-4" : "hidden"

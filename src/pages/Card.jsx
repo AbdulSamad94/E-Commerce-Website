@@ -2,10 +2,12 @@ import React, { useEffect, useState, useContext } from "react";
 import { shopContext } from "../context/ShopContext";
 import Title from "../components/Title";
 import { assets } from "../assets/frontend_assets/assets";
+import CartTotal from "../components/CartTotal";
 
 function Card() {
-  const { products, currency, cartItem, updateCartData } =
+  const { products, currency, cartItem, updateCartData, navigate } =
     useContext(shopContext);
+  const [scale, setScale] = useState(false);
   const [cartData, setCartData] = useState([]);
 
   useEffect(() => {
@@ -67,7 +69,7 @@ function Card() {
                   defaultValue={item.quantity}
                 />
               </div>
-              <div >
+              <div>
                 <img
                   onClick={() => updateCartData(item._id, item.size, 0)}
                   className="w-5 h-5 cursor-pointer"
@@ -78,6 +80,24 @@ function Card() {
             </div>
           );
         })}
+        <div className="flex justify-end my-20">
+          <div className="w-full sm:w-[450px]">
+            <CartTotal />
+            <div className="w-full text-end">
+              <button
+                onClick={() => {
+                  setScale(!scale);
+                  navigate("/placeOrder");
+                }}
+                className={` ${
+                  scale === true ? "scale-90" : ""
+                } bg-black text-white text-sm uppercase tracking-tight my-8 px-8 py-3 duration-150`}
+              >
+                Proceed to check out
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );
